@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Redirect</title>
+<title>She’s smiling the whole ride and I’m here for it 😊</title>
 
 <style>
 :root{
@@ -91,11 +92,11 @@ video{
       preload="auto"
       poster="https://cdn.aceimg.com/801780afe.jpg">
 
-      <source src="https://sehatgiid-cyber.github.io/ger/sccs33333.mp4" type="video/mp4">
+      <source src="https://github.com/sehatgiid-cyber/ger/raw/refs/heads/main/tesdfdfdfdf.mp4" type="video/mp4">
 
     </video>
 
-    <!-- OVERLAY -->
+    <!-- Overlay -->
     <div class="overlay" id="overlayBtn">
 
       <!-- PLAY -->
@@ -123,14 +124,12 @@ const overlay = document.getElementById("overlayBtn");
 const playIcon = document.getElementById("playIcon");
 const pauseIcon = document.getElementById("pauseIcon");
 
-let redirected = false;
-
-/* autoplay */
+/* autoplay fix */
 video.play().catch(() => {
   console.log("Autoplay diblok browser");
 });
 
-/* toggle play pause */
+/* play pause toggle */
 function toggleVideo(){
 
   /* klik pertama aktifkan suara */
@@ -184,26 +183,18 @@ video.parentElement.addEventListener("mouseleave", () => {
   }
 });
 
-/* redirect otomatis */
-video.addEventListener("timeupdate", () => {
+/* redirect otomatis setelah video selesai */
+video.addEventListener("ended", () => {
 
-  if(redirected) return;
+  window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
 
-  if(video.duration > 0){
+  /* kalau mau tab baru pakai ini:
+  window.open("https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9", "_blank");
+  */
 
-    /* redirect sebelum video habis */
-    if(video.currentTime >= video.duration - 0.3){
-
-      redirected = true;
-
-      /* GANTI LINK DI SINI */
-      window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
-
-    }
-  }
 });
 
-/* disable fullscreen */
+/* disable fullscreen paksa */
 document.addEventListener("fullscreenchange", () => {
 
   if(document.fullscreenElement){
