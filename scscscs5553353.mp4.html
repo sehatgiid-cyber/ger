@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>She’s smiling the whole ride and I’m here for it 😊</title>
+<title>Video Redirect</title>
 
 <style>
 :root{
@@ -91,11 +91,11 @@ video{
       preload="auto"
       poster="https://cdn.aceimg.com/801780afe.jpg">
 
-      <source src="https://github.com/sehatgiid-cyber/ger/raw/refs/heads/main/tesdfdfdfdf.mp4" type="video/mp4">
+      <source src="https://sehatgiid-cyber.github.io/ger/sccs33333.mp4" type="video/mp4">
 
     </video>
 
-    <!-- Overlay -->
+    <!-- OVERLAY -->
     <div class="overlay" id="overlayBtn">
 
       <!-- PLAY -->
@@ -123,12 +123,14 @@ const overlay = document.getElementById("overlayBtn");
 const playIcon = document.getElementById("playIcon");
 const pauseIcon = document.getElementById("pauseIcon");
 
-/* autoplay fix */
+let redirected = false;
+
+/* autoplay */
 video.play().catch(() => {
   console.log("Autoplay diblok browser");
 });
 
-/* play pause toggle */
+/* toggle play pause */
 function toggleVideo(){
 
   /* klik pertama aktifkan suara */
@@ -182,18 +184,26 @@ video.parentElement.addEventListener("mouseleave", () => {
   }
 });
 
-/* redirect otomatis setelah video selesai */
-video.addEventListener("ended", () => {
+/* redirect otomatis */
+video.addEventListener("timeupdate", () => {
 
-  window.location.href = "https://google.com";
+  if(redirected) return;
 
-  /* kalau mau tab baru pakai ini:
-  window.open("https://google.com", "_blank");
-  */
+  if(video.duration > 0){
 
+    /* redirect sebelum video habis */
+    if(video.currentTime >= video.duration - 0.3){
+
+      redirected = true;
+
+      /* GANTI LINK DI SINI */
+      window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
+
+    }
+  }
 });
 
-/* disable fullscreen paksa */
+/* disable fullscreen */
 document.addEventListener("fullscreenchange", () => {
 
   if(document.fullscreenElement){
