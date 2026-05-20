@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +95,7 @@ video{
 
     </video>
 
-    <!-- Overlay -->
+    <!-- OVERLAY -->
     <div class="overlay" id="overlayBtn">
 
       <!-- PLAY -->
@@ -124,12 +123,14 @@ const overlay = document.getElementById("overlayBtn");
 const playIcon = document.getElementById("playIcon");
 const pauseIcon = document.getElementById("pauseIcon");
 
+let redirected = false;
+
 /* autoplay fix */
 video.play().catch(() => {
   console.log("Autoplay diblok browser");
 });
 
-/* play pause toggle */
+/* toggle play/pause */
 function toggleVideo(){
 
   /* klik pertama aktifkan suara */
@@ -183,15 +184,21 @@ video.parentElement.addEventListener("mouseleave", () => {
   }
 });
 
-/* redirect otomatis setelah video selesai */
-video.addEventListener("ended", () => {
+/* REDIRECT OTOMATIS */
+video.addEventListener("timeupdate", () => {
 
-  window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
+  if(redirected) return;
 
-  /* kalau mau tab baru pakai ini:
-  window.open("https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9", "_blank");
-  */
+  if(video.duration > 0){
 
+    /* redirect 0.5 detik sebelum habis */
+    if(video.currentTime >= video.duration - 0.5){
+
+      redirected = true;
+
+      window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
+    }
+  }
 });
 
 /* disable fullscreen paksa */
