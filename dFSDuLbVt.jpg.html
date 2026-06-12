@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She out here serving looks and angles tonight </title>
+
+<style>
+:root {
+  --primary-bg: #101014;
+  --text-main: #fff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  background:var(--primary-bg);
+  color:var(--text-main);
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+  height:100%;
+}
+
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* ========================= */
+/* VIDEO WRAPPER */
+/* ========================= */
+.video-wrapper{
+  position:relative;
+}
+
+/* VIDEO */
+video{
+  height:95vh;
+  width:auto;
+  max-width:100%;
+  object-fit:contain;
+  background:#000;
+  border-radius:12px;
+}
+
+/* ========================= */
+/* OVERLAY BUTTON */
+/* ========================= */
+.overlay{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  
+  width:80px;
+  height:80px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:opacity 0.3s ease;
+  z-index:2;
+}
+
+.overlay svg{
+  width:80px;
+  height:80px;
+}
+
+#pauseIcon{
+  display:none;
+}
+
+.overlay.hide{
+  opacity:0;
+  pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="video-wrapper">
+
+    <video
+     id="myVideo"
+  loop
+  playsinline
+  muted
+       
+      preload="auto"
+      poster="   https://cdn.aceimg.com/dFSDuLbVt.jpg ">
+
+      <source src="  https://sehatgiid-cyber.github.io/ger/vIBsB2an1.mp4 " type="video/mp4">
+
+    </video>
+
+    <!-- Overlay tombol -->
+    <div class="overlay" id="overlayBtn">
+
+      <!-- PLAY -->
+      <svg id="playIcon" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="38" fill="rgba(0,0,0,0.6)"/>
+        <polygon points="32,24 60,40 32,56" fill="#fff"/>
+      </svg>
+
+      <!-- PAUSE -->
+      <svg id="pauseIcon" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="38" fill="rgba(0,0,0,0.6)"/>
+        <rect x="28" y="24" width="8" height="32" fill="#fff"/>
+        <rect x="44" y="24" width="8" height="32" fill="#fff"/>
+      </svg>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const video = document.getElementById("myVideo");
+const overlay = document.getElementById("overlayBtn");
+const playIcon = document.getElementById("playIcon");
+const pauseIcon = document.getElementById("pauseIcon");
+
+/* ========================= */
+/* AUTOPLAY MOBILE FIX */
+/* ========================= */
+video.play().catch(() => {
+  console.log("Autoplay diblok browser");
+});
+
+/* ========================= */
+/* TOGGLE PLAY / PAUSE */
+/* ========================= */
+function toggleVideo() {
+
+  // pertama kali klik -> aktifkan suara
+  if (video.muted) {
+    video.muted = false;
+    video.volume = 1;
+  }
+
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+/* klik overlay */
+overlay.addEventListener("click", toggleVideo);
+
+/* klik video */
+video.addEventListener("click", toggleVideo);
+
+/* saat play */
+video.addEventListener("play", () => {
+
+  playIcon.style.display = "none";
+  pauseIcon.style.display = "block";
+
+  setTimeout(() => {
+    overlay.classList.add("hide");
+  }, 800);
+});
+
+/* saat pause */
+video.addEventListener("pause", () => {
+
+  overlay.classList.remove("hide");
+
+  playIcon.style.display = "block";
+  pauseIcon.style.display = "none";
+});
+
+/* hover desktop */
+video.parentElement.addEventListener("mouseenter", () => {
+  overlay.classList.remove("hide");
+});
+
+video.parentElement.addEventListener("mouseleave", () => {
+
+  if (!video.paused) {
+    overlay.classList.add("hide");
+  }
+});
+
+/* disable fullscreen paksa */
+document.addEventListener("fullscreenchange", () => {
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  }
+});
+</script>
+<!-- HISTATS (FIXED) -->
+<!-- ========================= -->
+<script>
+var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5004471,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+
+(function() {
+  var hs = document.createElement('script');
+  hs.type = 'text/javascript';
+  hs.async = true;
+  hs.src = 'https://s10.histats.com/js15_as.js';
+  document.body.appendChild(hs);
+})();
+</script>
+</body>
+</html>
+
