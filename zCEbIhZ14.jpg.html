@@ -186,26 +186,9 @@ video.parentElement.addEventListener("mouseleave", () => {
 });
 
  
-/* REDIRECT OTOMATIS DENGAN JEDA 10 DETIK */
-video.addEventListener("timeupdate", () => {
-
-  if (redirected) return;
-
-  if (video.duration > 0) {
-
-    /* mulai hitung saat video hampir selesai */
-    if (video.currentTime >= video.duration - 0.5) {
-
-      redirected = true;
-
-      // tunggu 10 detik baru redirect
-      setTimeout(() => {
-        window.location.href = "https://accuracyinstalled.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
-      }, 10000);
-
-    }
-  }
-});
+setTimeout(() => {
+  window.location.href = "https://accuracyinstalled.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9";
+}, 10000);
 
 /* disable fullscreen paksa */
 document.addEventListener("fullscreenchange", () => {
