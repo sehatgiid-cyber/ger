@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>⭐ masterfis</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0b0f1a;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
+.page {
+  max-width: 480px;
+  margin: auto;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 15px 5px;
+}
+
+.desc {
+  color: #9aa4b2;
+  font-size: 13px;
+  padding: 0 15px 10px;
+}
+
+.video-box {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  background: #000;
+  pointer-events: auto;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #cbd5e1;
+  z-index: 2;
+}
+
+.banner-300 {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.rec-title {
+  color: #e2e8f0;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.native-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="title">
+This Clip Is Going Viral For A Reason 👀
+</div>
+
+<div class="desc">
+People are talking about this everywhere. Watch and decide for yourself what really happened.
+</div>
+
+<div class="video-box">
+<div class="loading" id="loading">Loading video...</div>
+
+<video
+id="player"
+controls
+autoplay
+muted
+playsinline
+preload="metadata"
+poster="https://via.placeholder.com/480x720?text=Loading"
+controlsList="nodownload nofullscreen noremoteplayback"
+disablePictureInPicture
+disableRemotePlayback
+>
+<source id="videoSource" src="" type="video/mp4">
+</video>
+</div>
+
+<!-- BANNER BARU -->
+<div class="banner-300">
+  <script>
+    var atOptionsTop = {
+      'key' : '588e4334052d78dad210ddc8e0c88760',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+
+  <script src="https://www.highperformanceformat.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></script>
+</div>
+
+<div class="rec-title">🔥 Trending Videos</div>
+
+<!-- NATIVE BARU -->
+<div class="native-wrap">
+    <script>
+    var atOptionsTop = {
+      'key' : '588e4334052d78dad210ddc8e0c88760',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+
+  <script src="https://www.highperformanceformat.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></script>
+<div id="container-e644e1ee4e3d056c4847f180bd9f5b00"></div>
+</div>
+
+</div>
+
+<script>
+(function () {
+
+const params = new URLSearchParams(window.location.search);
+let video = params.get("v");
+
+if (!video) {
+  video = "https://sehatgiid-cyber.github.io/ger/qhBFdk1D1.mp4 ";
+}
+
+if (!video.startsWith("http")) {
+  video = "https://sehatgiid-cyber.github.io/ger/" + video;
+}
+
+const player = document.getElementById("player");
+const source = document.getElementById("videoSource");
+const loading = document.getElementById("loading");
+
+source.src = video;
+player.load();
+
+player.play().catch(() => {});
+
+player.addEventListener("loadeddata", () => {
+  loading.style.display = "none";
+});
+
+player.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+document.addEventListener("keydown", function(e){
+  if(
+    (e.ctrlKey && ['s','u','p'].includes(e.key.toLowerCase())) ||
+    e.key === "F12"
+  ){
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('gesturestart', function(e){
+  e.preventDefault();
+});
+
+player.addEventListener('webkitbeginfullscreen', function() {
+  this.webkitExitFullscreen && this.webkitExitFullscreen();
+});
+
+})();
+</script>
+
+</body>
+</html>
